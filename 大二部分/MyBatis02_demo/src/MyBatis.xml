@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+  <properties resource="db.properties"/><!-- 导入数据配置文件 -->
+  
+  <typeAliases>
+      <package name="entity"/><!-- 给对应的包名中所有的类起别名 默认是对应类名 -->
+  </typeAliases>
+  
+    <!-- environments 指的是mybatis可以配置多个环境
+    每一个SqlSessionFactory对应一个环境environment -->
+	<environments default="development">
+	
+		<environment id="development">
+		
+			<transactionManager type="JDBC" />
+			<!-- 事务管理器 
+			JDBC 它依赖于从数据源获得连接来管理事务的生命周期
+			MANAGED 让容器(spring或者J2EE)来管理事务的生命周期 
+			 -->
+			
+			<dataSource type="POOLED">
+			<!-- dataSource 连接池 -->
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+			
+		</environment>
+		
+	</environments>
+	
+	<mappers>
+		<mapper class="dao.UserDao" />
+		
+	</mappers>
+</configuration>

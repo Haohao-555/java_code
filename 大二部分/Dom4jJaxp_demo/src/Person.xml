@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<person> 
+  <p1 id="aaaa"> 
+    <name>zhangsan</name>  
+    <school>dax</school>
+    <school>dax</school>  
+    <age>20</age>  
+    <nev>nan</nev>  
+    <nev>nan</nev> 
+  </p1>  
+  <p1> 
+    <name>lisi</name>  
+    <age>12</age> 
+  </p1> 
+</person>

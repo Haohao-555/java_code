@@ -1,0 +1,25 @@
+#nav {
+	list-style:none; padding:0px;
+	background:#28333F; color:#E5E5E5;
+	height:60px; width:1850px;
+	font-family:Microsoft YaHei;
+	margin:0px;
+}
+#nav li {
+	float:left; width:105px; 
+	line-height:60px;
+	text-align:center;
+}
+
+.li_mu:hover{
+	background:blue; color:yellow;
+	cursor:pointer; font-size:17px;
+}
+
+#nav #user{
+	width:400px; float:right;
+	background:#28333F;
+	text-align:right;
+	padding-right:15px;
+}
+#user:hover{ background:#28333F; }

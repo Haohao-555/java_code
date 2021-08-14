@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+ .head{
+        width:100%;
+        height:80px;
+        border-top:6px solid #28333f;
+        border-bottom:6px solid #28333f;
+        margin-bottom:30px;
+        margin-left:30px;
+        margin-top:30px;
+        text-align:center;
+      }
+     
+     label{
+       color:#28333f;
+     } 

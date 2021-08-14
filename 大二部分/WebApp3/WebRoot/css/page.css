@@ -1,0 +1,18 @@
+.pageBtn{
+	border:1px solid #666;
+	border-right:none; text-align:center;
+	width:35px; height:35px; 
+	float:left; line-height:35px;
+}
+.pagePrev, .pageNext { 
+	border:1px solid #666;
+	width:70px; height:35px; float:left;
+	text-align:center;  line-height:35px;
+}
+.pagePrev{
+	border-right:none;
+	border-radius:5px 0px 0px 5px;
+}
+.pageNext{
+	border-radius:0px 5px 5px 0px;
+}

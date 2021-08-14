@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+.container:hover{
+       box-shadow:5px 5px 5px 1px rgba(0,0,0,0.4);
+       transtion:all 1s;
+    }
+        .container{
+           position:relative;
+           border:1px solid #000;
+           padding-top:40px;
+           background-color:#fff;
+           box-sizing:border-box;
+           width:500px;
+           height:320px;
+           margin:0 auto;
+           text-align:center;
+           margin-top:220px;
+        }
+        button:first-child{
+           margin-right:30px;
+        }
+        a{
+          font-size:20px;
+          color:#000;
+          position:absolute;
+          top:10px;
+          left:10px;
+          text-decoration:none;
+        }
+        a:hover{
+           color:#286090;
+           text-decoration:none;
+        }
+        label{
+         font-size:20px;
+        }

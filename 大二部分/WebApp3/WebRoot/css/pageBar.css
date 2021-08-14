@@ -1,0 +1,28 @@
+[type='button']{
+	font-size:15px;
+	width:60px; height:27px;
+	border:1px solid #999;
+}
+[type='button']:hover{
+	cursor:pointer;
+	background:#BBB;
+	border:1px solid #666;
+}
+[type='text']{
+	font-size:15px;
+	width:50px; height:23px;
+	background:#E5E5E5;
+	text-indent:.3em;
+	border:1px solid #666;
+}
+label{
+	font-size:15px;
+	color:#666; margin-left:5px;
+}
+#spPage, #spTotalPage {
+	font-size:15px;
+	color:#666; font-weight:bold;
+}
+#pageBar{
+	margin-left:25px;
+}
