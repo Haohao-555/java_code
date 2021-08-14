@@ -1,0 +1,140 @@
+package work;
+
+import java.util.Arrays;
+
+public class JavaAPIdemo {
+	   public static void main(String[] args) {
+		BinaryTree<Person> tree=new BinaryTree<Person>();
+		tree.add(new Person("小强-80",80));
+		tree.add(new Person("小强-100",100));
+		tree.add(new Person("小强-60",60));
+		tree.add(new Person("小强-90",90));
+		System.out.println(Arrays.toString(tree.toArray()));
+	}
+	}
+
+
+//实现二叉树的数据操作
+class BinaryTree <T extends Comparable<T>>{
+	//内部类（节点）
+	private class Node{//定义结点
+		private Comparable<T> data;//存放Comparable,可以比较大小
+		private Node parent;//存放父节点
+		private Node left;//存放左子树
+		private Node right;//存放右子树
+		public Node(Comparable<T> data){//构造方法直接负责进行数据的存储
+			this.data=data;
+		}
+		
+		
+		
+		/**
+		 *实现节点数据的适当位置的存储
+		 *@param newNode 创建的新节点 
+		 * */
+		public void addNode(Node newNode){
+			if(newNode.data.compareTo((T)this.data)<=0){//比当前节点数据小
+				if(this.left==null){
+					this.left=newNode;
+					newNode.parent=this;//保存父节点
+				}else{//继续向左判断
+					this.left.addNode(newNode);//继续向下判断
+				}
+			}else{
+				if(this.right==null){
+					this.right=newNode;
+					newNode.parent=this;
+				}else{
+					this.right.addNode(newNode);
+				}
+			}
+			
+		}
+		
+		
+		
+		/**
+		 * 实现所有数据的获取处理，按照中序遍历的形式来完成
+		 * */
+		public void toArrayNode(){
+			if(this.left!=null){
+				this.left.toArrayNode();
+			}
+			BinaryTree.this.returnData[BinaryTree.this.foot++]=this.data;
+			if(this.right!=null){
+				this.right.toArrayNode();
+			}
+			
+		}
+	}
+	
+	
+	//-------------------以下为二叉树的功能实现-------------------
+	private Node root;//保存根节点
+	private int count;//保存数据的个数
+	private int foot=0;//脚标控制
+	private Object []returnData;//返回的数据
+	
+	
+	
+	
+	/**
+	 * 进行数据保存
+	 * @param data 要保存的数据
+	 * @exception NullPointerException 保存的数据为空时抛出的异常
+	 * 
+	 * */
+	public void add(Comparable<T> data){
+		if(data==null){
+			throw new NullPointerException("保存的数据不能为空");
+		}
+		//所有的数据本身不具备有节点关系的匹配，那么一定要将其包装在Node类之中
+		Node newNode=new Node(data);//保存节点
+		if(this.root==null){//现在没有根节点，则第一个节点作为根节点
+			this.root=newNode;
+		}else{//需要为其保存到一个合适的节点
+			this.root.addNode(newNode);//交由Node类处理
+			
+		}
+		this.count++;
+	}
+	
+	
+	/**
+	 * 以对象数组的形式返回全部数据，如果没有数据返回null
+	 * @return 全部数据
+	 * */
+	public Object[] toArray(){
+		if(this.count==0){
+			return null;
+		}
+		this.returnData=new Object[this.count];//保存长度为数组长度
+		this.foot=0;//脚标清零
+		this.root.toArrayNode();//直接通过Node类负责
+		return this.returnData;//返回数据
+	}
+	
+	
+}
+
+
+//数据结构
+class Person implements Comparable<Person> {
+	private String name;
+	private int age;
+    public Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+    @Override
+    public int compareTo(Person per) {
+    	return this.age-per.age;
+    }
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "[Person类对象]姓名：" + this.name + "、年龄：" + this.age + "\n";
+	}
+}
+
